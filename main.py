@@ -1,7 +1,4 @@
-""""
-Sahil Patel CIS106 May 2, 2024
-This program reads a set of data representing a series of numeric measurements. The program will display the data, first unsorted and then sorted, and then compute and display various statistics about the data set. In addition, the program will compute and display the statistics for the set of data.
-"""
+
 
 def print_list(title, data):
     print(title)
