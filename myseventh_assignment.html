@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
+    <title>Age Comparison</title>
+
+</head>
+    <body>
+     <header class="styling">
+    <h1>Age Comparison</h1>
+    <h2>Who is Older?</h2>
+
+
+    </header>
+    <link rel="stylesheet" href="styled.css">
+    
+
+    <p> <label for="Age Comparison">Age Comparison</label>
+        Person One Age: <input type="text" id="firstPerson">
+    </p>
+    <p>
+        Person Two Age: <input type="text" id="secondPerson">
+    </p>
+
+
+        <button type="button" onclick="compareAge()">Compare Ages</button>
+        <div id="ageCompare" class="blue"></div>
+        <!---Created forms and used the div id for the user to enter in
+        values and a class to give it styling-->
+    
+
+    <script>
+        function compareAge(){
+            var firstAge = document.getElementById("firstPerson").value;
+            var secondAge = document.getElementById("secondPerson").value;
+            firstAge = parseInt(firstAge);
+            secondAge = parseInt(secondAge);
+            var ageComparison;
+            var result;
+            var outputResult;
+            //Created variables, and used document get Element By Id to
+            //enter value, then used parseInt to convert string into integer.
+            if(firstAge > secondAge){
+                var result = firstAge - secondAge;
+                ageComparison = "Person 1 is older by " + result + " years. ";
+                //I used if, else statment, if person one age is greater
+                //than person two then display person 1 is older by years
+
+
+            }
+            else{
+                var outputResult = secondAge - firstAge;
+                ageComparison = "Person 2 is older by  " + outputResult + "  years. ";
+                //else we subtract the person two age by firstage and
+                //display the output person 2 is older by number of years.
+
+            }
+            document.getElementById("ageCompare").innerHTML = ageComparison;
+            //the div id is added to get Element By Id with innerhtml, and
+            //displaying it to ageComparison output
+
+
+        }
+    </script>
+    <!--The CSS margin properties are used to create space around elements,
+    outside of any defined borders.-->
+    <!---The CSS padding properties are used to generate space around an
+    element's content, inside of any defined borders.-->
+    <!--In this course falling behind javascript can lead into bad grades,
+    and it is important the students talk to Professor.Mendelsohn, and seek
+    tutoring--->
+</body>
+</html>
