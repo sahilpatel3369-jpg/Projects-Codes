@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Movie Ticket</title>
+    <link rel="stylesheet" href="cascading.css">
+    <style>
+        h1{
+            color: rgb(47, 237, 0);
+        }
+    </style>
+    
+
+    
+</head>
+
+<body>
+    <main>
+    <header>
+    <h1>Movie Ticket Cost</h1>
+    </header>
+
+
+    
+    <p>
+        <label for="tickets">How many movie tickets?</label>
+        <input type="text" id="valTickets">
+    </p>
+    <p>
+        <label for="customerAge">How old are the customers?</label>
+        <input type="text" id="customerAge"><br>
+
+    </p>
+    <p>
+        <label for="memberClub">Are you a member of our frequent-viewers
+        club?</label>
+        <select id="memberClub">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option> <br>
+        </select>
+    </p>
+    <button type="button" onclick="calculateCost()">Calculate Cost</button>
+    <!--Creating form texts for user to enter how many tickets and the age
+    of the customers, then I created a select button whether if they were
+    part of movie members if they were part of the member then 10% discount
+    applies, otherwise no discount applies. Then added a clickable button
+    to display the cost at the end-->
+    
+    <br>
+    <div id="displayResults" style="color:darkgreen; font-size: 50px";></div>
+    <!--Created a div id output-->
+    </main>
+    <script>
+        function calculateCost(){
+            var tickets = document.getElementById("valTickets").value;
+            var customerAge = document.getElementById("customerAge").value;
+            var clubMember = document.getElementById("memberClub").value;
+            var outputValue;
+            var cost;
+            customerAge = parseInt(customerAge);
+            //Variables and giving them value with document get element by id
+            
+            var ticketPrice;
+            if (customerAge >= 65 || customerAge <= 8){
+
+            
+            ticketPrice = 9.95;
+            }
+            else{
+                ticketPrice = 14.95;
+            }
+             cost = tickets * ticketPrice;
+            if(clubMember == "Yes"){
+                cost = cost*0.9; //applying 10% discount for those that are club members, and creating if else statment, example if a person's age is greater than or equal to 65 or with logical operator less than or equal to 8 then 9.95 is the price for movie ticket, if that is not true else movie ticket is 14.95
+             
+
+                
+            }
+
+            cost = cost.toFixed(2);
+            //tofixed(2) is roudning 2 decimal places
+                 var outputValue = "Your Total Cost is: " + cost +  "<br>Enjoy Your Movie!!";
+                  document.getElementById("displayResults").innerHTML = outputValue;
+                  //If else statment using logical operator and outputting
+                  //the total cost for the movie ticket
+                
+                 
+
+        }
+
+    </script>
+    
+</body>
+</html>
