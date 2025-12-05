@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DePaul Demon Duds</title>
+    <link rel="stylesheet" href="ninth.css">
+</head>
+<body>
+    <header>
+        <h1>DePaul Demon Duds</h1>
+    </header>
+    <label for="fullName" class="blue">Enter Your Name</label>
+    <input type="text" id="txtName">
+    
+    <label for="clothingSize" class="size">Select Size:</label>
+    <select name="clothingSize" id="merchSize">
+        <option value="sm">Small</option>
+        <option value="med">Medium</option>
+        <option value="lg">Large</option>
+        <option value="ot">OtherSize</option>
+    </select>
+    <br>
+
+Shipping:
+<p><label for="usPostal" class="style-format">UsPostal($5)</label>
+<input type="radio" name="shippingName" id="radUsPostal" value="5"><br>
+
+<label for="fedEx" class="style">FedEx($15)</label>
+<input type="radio" name="shippingName" id="radFedEx" value="15"><br>
+
+<label for="upsOverNight" class="format">UPS OverNight Delivery($25)</label>
+<input type="radio" name="shippingName" id="radUPSOverNight" value="25"><br>
+</p>
+<p>
+    Monogrammed Shirt ($20)? <input type="checkbox" id="monogrammedOne" value="20">
+</p>
+<button type="button" onclick="getMyDud()">Order Sweater</button>
+<div id="outputDisplay" class="format-output" ></div>
+<!---Created select and radio buttons the user can select a size, and check
+which shipping method they prefer, and a monogram checkbox to check if the
+shirt wants to be monogrammed for 20 dollars more.-->
+<script>
+    function getMyDud(){
+        var cost = 49.99;
+        var totalCost;
+        var shippingTotal = 0;
+        var userName = document.getElementById("txtName").value;
+        var monogrammedPrice = 0;
+        var outputMessage;
+        //variables defined and username has getelementbyid.value for user
+        //to enter their name.
+        //The original cost starts at 49.99, but since we have multiple
+        //radio buttons that user can check the value would be assigned as
+        //0, but once  the user checks or clicks on the shipping or the
+        //monogrammed price it will add in the extra cost the user picked
+    
+       
+       
+        if(document.getElementById("radUsPostal").checked){
+            shippingTotal = document.getElementById("radUsPostal").value;
+
+
+        }
+        else if(document.getElementById("radFedEx").checked){
+            shippingTotal = document.getElementById("radFedEx").value;
+        }
+        else if(document.getElementById("radUPSOverNight").checked){
+            shippingTotal= document.getElementById("radUPSOverNight").value;
+        }
+        shippingTotal = parseFloat(shippingTotal);
+       
+    
+        if(document.getElementById("monogrammedOne").checked){
+            monogrammedPrice = document.getElementById("monogrammedOne").value;
+
+        }
+        //I created if else if statments for shipping since we have more
+        //than 2 conditions it would use else if, but if I added an else
+        //then javascript will skip through everything. I parse floated the
+        //shipping total so it will be added in decimals. The monogrammed
+        //price was an if statement because monogrammed is a different
+        //variable defined with a check box, if the user checks it then get
+        //the value of 20 and add it into our totalCost. 
+        monogrammedPrice = parseFloat(monogrammedPrice);
+        
+        totalCost = cost + shippingTotal + monogrammedPrice;
+       //Calculating the total cost for the sweater, shipping, and if user
+       //checks the monogrammed price.
+        totalCost = totalCost.toFixed(2);
+        //total cost will be rounded to two decimal places.
+         
+    
+        outputMessage = " Thank You " + userName + " Your total comes out $" + totalCost + "!";
+        document.getElementById("outputDisplay").innerHTML = outputMessage;
+        //Output message for the user and displaying it back with the
+        //innerHTML command.
+
+    
+
+    }
+</script>
+</body>
+</html>
